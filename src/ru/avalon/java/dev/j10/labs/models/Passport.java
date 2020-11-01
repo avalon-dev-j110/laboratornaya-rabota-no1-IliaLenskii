@@ -1,32 +1,40 @@
 package ru.avalon.java.dev.j10.labs.models;
 
-import ru.avalon.java.dev.j10.labs.commons.Address;
-import java.util.Date;
-
+/**
+ * Представление о паспортных данных человека.
+ * <p>
+ * Паспортные данные должны включать:
+ * <ol>
+ *  <li> серию и номер документа;
+ *  <li> имя;
+ *  <li> фамилию;
+ *  <li> отчество;
+ *  <li> второе имя;
+ *  <li> день рождения;
+ *  <li> дату выдачи;
+ *  <li> орган, выдавший документ.
+ * </ol>
+ */
 class Passport {
-    private int series;
-    private int nn;
-    private Date date = new Date();
-    private String maker = "The Passport office";
 
-    protected Address address;
-
-    private static int countSeries = 4030;
-    private static int countNN = 567000;
-
-    public Passport() {
-
-        this.series = (++Passport.countSeries);
-        this.nn = (++Passport.countNN);
-    }
-
-    public String getPassport() {
-        String adr = "Passport: ";
-
-        adr += series +" "+ nn +", ";
-        adr += date.toString() +", ";
-        adr += maker;
-
-        return adr;
-    }
+    /*
+     * TODO(Студент): Закончить определение класса.
+     *
+     * 1. Объявить атрибуты класса.
+     *
+     * 2. Определить необходимые методы класса. Подумайте о
+     *    том, какие методы должны существовать в классе,
+     *    чтобы обеспечивать получение всей необходимой
+     *    информации о состоянии объектов данного класса.
+     *    Все ли поля обязательно будут проинициализированы
+     *    при создании экземпляра?
+     *
+     * 3. Создайте все необходимые конструкторы класса.
+     *
+     * 4. Помните о возможности существования перегруженных
+     *    конструкторов.
+     *
+     * 5. Обеспечте возможность использования класса за
+     *    пределами пакета.
+     */
 }
