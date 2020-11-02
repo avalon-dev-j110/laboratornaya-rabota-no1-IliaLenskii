@@ -3,7 +3,7 @@ package ru.avalon.java.dev.j10.labs.models;
 import ru.avalon.java.dev.j10.labs.commons.Address;
 import java.util.Date;
 
-class Passport {
+public class Passport {
     private int series;
     private int nn;
     private Date date = new Date();

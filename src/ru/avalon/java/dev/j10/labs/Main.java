@@ -1,6 +1,7 @@
 package ru.avalon.java.dev.j10.labs;
 
 import ru.avalon.java.dev.j10.labs.models.Person;
+import ru.avalon.java.dev.j10.labs.models.Passport;
 import ru.avalon.java.dev.j10.labs.commons.Address;
 
 public class Main {
@@ -20,9 +21,11 @@ public class Main {
                 101000);
 
         Person ivanov = new Person("Иванов", "Иван", "Иванович");
+        ivanov.setPassport(new Passport());
         ivanov.setAddress(add1);
 
         Person smith = new Person("John", "Edvard", "Smith");
+        smith.setPassport(new Passport());
         smith.setAddress(add2);
 
         String fnIvanov = ivanov.getFullName();

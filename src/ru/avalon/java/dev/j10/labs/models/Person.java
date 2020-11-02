@@ -3,13 +3,15 @@ package ru.avalon.java.dev.j10.labs.models;
 import ru.avalon.java.dev.j10.labs.commons.Address;
 import java.util.Date;
 
-public class Person extends Passport {
+public class Person {
     private String name;
     private String surname;
     private String middleName;
     private String secondName;
 
     private Date birthday;
+
+    private Passport passport;
 
     public Person(String Surname, String Name) {
         this.name = Name;
@@ -53,10 +55,30 @@ public class Person extends Passport {
 
     public String getAddress() {
 
-        return this.address.getAddress();
+        if(this.passport == null)
+            return "";
+
+        return this.passport.address.getAddress();
     }
 
     public void setAddress(Address Address) {
-        this.address = Address;
+
+        if(this.passport == null)
+            return;
+
+        this.passport.address = Address;
+    }
+
+    public void setPassport(Passport Passport) {
+
+        this.passport = Passport;
+    }
+
+    public String getPassport() {
+
+        if(this.passport == null)
+            return "";
+
+        return this.passport.getPassport();
     }
 }
