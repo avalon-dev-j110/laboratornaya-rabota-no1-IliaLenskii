@@ -24,7 +24,7 @@ public class Main {
         ivanov.setPassport(new Passport());
         ivanov.setAddress(add1);
 
-        Person smith = new Person("John", "Edvard", "Smith");
+        Person smith = new Person("Smith", "John", null, "Edvard");
         smith.setPassport(new Passport());
         smith.setAddress(add2);
 

@@ -7,7 +7,7 @@ public class Person {
     private String name;
     private String surname;
     private String middleName;
-    private String secondName;
+    private String patronymic;
 
     private Date birthday;
 
@@ -18,28 +18,25 @@ public class Person {
         this.surname = Surname;
     }
 
-    public Person(String Surname, String Name, String MiddleName) {
+    public Person(String Surname, String Name, String Patronymic) {
         this(Surname, Name);
-        this.middleName = MiddleName;
+        this.patronymic = Patronymic;
     }
 
-    public Person(String Surname, String Name, String MiddleName, String SecondName) {
-        this(Surname, Name, MiddleName);
-        this.secondName = SecondName;
+    public Person(String Surname, String Name, String Patronymic, String MiddleName) {
+        this(Surname, Name, Patronymic);
+        this.middleName = MiddleName;
     }
 
     public String getFullName() {
 
         String def = this.name +" "+ this.surname;
-        String fc = this.secondName != null ? this.secondName.substring(0, 1) : "";
+        String fc = this.middleName != null ? this.middleName.substring(0, 1) : "";
 
-        if(this.middleName == null && this.secondName == null)
-            return def;
+        if(this.patronymic != null)
+            return def +" "+ this.patronymic;
 
-        if(this.middleName != null)
-            return def +" "+ this.middleName;
-
-        if(this.middleName == null && this.secondName != null)
+        if(this.patronymic == null && this.middleName != null)
             return this.name +" "+ fc +". "+ this.surname;
 
         return def;
