@@ -1,53 +1,81 @@
 package ru.avalon.java.dev.j10.labs.models;
 
-/**
- * Представление о человеке.
- * <p>
- * С точки зрения задания человек представляется как сущность,
- * наделённая:
- * <ol>
- *     <li>паспортными данными;
- *     <li>пропиской по месту жительства.
- * </ol>
- */
-public class Person {
+import ru.avalon.java.dev.j10.labs.commons.Address;
+import java.util.Date;
 
-    /**
-     * Возврвщает полное имя человека.
-     * <p>
-     * Если у человека есть Имя, Фамилия и Отчество, то
-     * возвращет Имя, Фимилию и Отчество, разделённые пробелом.
-     * <p>
-     * Если у человека нет Отчества, но есть второе имя, то
-     * возвращает Имя, Первую букву второго имени, и Фамилию,
-     * разделённые пробелом. После Инициала второго имени
-     * должна стоять точка. Например, "Джером К. Джером".
-     * <p>
-     * Если у человека нет ни Отчества ни Второго имени, а
-     * есть только Имя и Фамилия, то возвращает их, разделённые
-     * пробелом.
-     *
-     * @return имя человека в виде строки.
-     */
-    public String getFullName() {
-        /*
-         * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
-         */
-        return null;
+public class Person {
+    private String name;
+    private String surname;
+    private String middleName;
+    private String patronymic;
+
+    private Date birthday;
+
+    private Passport passport;
+
+    public Person(String Surname, String Name) {
+        this.name = Name;
+        this.surname = Surname;
     }
 
-    /**
-     * Возвращает адрес, по которому проживает человек.
-     * <p>
-     * Возвращаемый адрес соответствует месту постоянной
-     * регистрации человека, согласно паспортным данным.
-     *
-     * @return адрес регистрации в виде строки.
-     */
+    public Person(String Surname, String Name, String Patronymic) {
+        this(Surname, Name);
+        this.patronymic = Patronymic;
+    }
+
+    public Person(String Surname, String Name, String Patronymic, String MiddleName) {
+        this(Surname, Name, Patronymic);
+        this.middleName = MiddleName;
+    }
+
+    public String getFullName() {
+
+        String def = this.name +" "+ this.surname;
+        String fc = this.middleName != null ? this.middleName.substring(0, 1) : "";
+
+        if(this.patronymic != null)
+            return def +" "+ this.patronymic;
+
+        if(this.patronymic == null && this.middleName != null)
+            return this.name +" "+ fc +". "+ this.surname;
+
+        return def;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date Birthday) {
+        this.birthday = Birthday;
+    }
+
     public String getAddress() {
-        /*
-         * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
-         */
-        return null;
+
+        if(this.passport == null)
+            return "";
+
+        return this.passport.address.getAddress();
+    }
+
+    public void setAddress(Address Address) {
+
+        if(this.passport == null)
+            return;
+
+        this.passport.address = Address;
+    }
+
+    public void setPassport(Passport Passport) {
+
+        this.passport = Passport;
+    }
+
+    public String getPassport() {
+
+        if(this.passport == null)
+            return "";
+
+        return this.passport.getPassport();
     }
 }
